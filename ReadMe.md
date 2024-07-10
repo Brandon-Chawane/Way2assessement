@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is a test automation framework for automating interactions with a web table at [Way2Automation](http://www.way2automation.com/angularjsprotractor/webtables/). The framework is built using Java, Selenium WebDriver, and TestNG, following the Page Object Model (POM) design pattern for maintainability and readability.
+This project is a test automation framework for automating interactions with a web table at [Way2Automation](https://www.way2automation.com/angularjs-protractor/webtables/). The framework is built using Java, Selenium WebDriver, and TestNG, following the Page Object Model (POM) design pattern for maintainability and readability.
 
 ## Features
 
@@ -22,7 +22,7 @@ This project is a test automation framework for automating interactions with a w
 
 1. **Clone the repository**
     ```sh
-    git clone https://github.com/Brandon-Chawane/Way2assessements.git
+    git clone https://github.com/Brandon-Chawane/Way2assessement.git
   
     ```
 
