@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/brand/OneDrive/Documents/AutomationClass/Way2assessment">
+<suite name="All Test Suite" thread-count="5">
+
+    <listeners>
+        <listener class-name="Report.Listener"/>
+    </listeners>
+
+    <test name="Chrome">
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="Tests.Way2Test">
-                <methods>
-                    <include name="validateUserListTable"/>
-                    <include name="addFirstUser"/>
-                    <include name="addSecondUser"/>
-                </methods>
+            <class name="Tests.TC001_Validating_Users">
             </class>
         </classes>
     </test>
+
+    <test name="Edge">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="Tests.TC001_Validating_Users">
+            </class>
+        </classes>
+    </test>
+
 </suite>

@@ -32,7 +32,7 @@ public class ExtentReportManager {
 
     }
 
-    private static String ScreenshotDir = System.getProperty("user.dir") + "/Screenshots";
+    private static String ScreenshotDir = System.getProperty("user.dir") +"/Screenshots";
 
     public static void takeSnapShot(WebDriver driver, String screenshotName) {
         TakesScreenshot ts = (TakesScreenshot) driver;

@@ -1,17 +1,21 @@
 package WebUtilities;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
-
 import java.time.Duration;
 
-import static WebUtilities.BrowserFactory.driver;
 
 
 public class WebActions {
 
+    WebDriver driver;
 
-    private static void wait(WebElement element) {
+    public WebActions(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    private void wait(WebElement element) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOf(element));
@@ -21,7 +25,7 @@ public class WebActions {
 
     }
 
-    public static void click(WebElement element) {
+    public void click(WebElement element) {
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -33,7 +37,7 @@ public class WebActions {
 
     }
 
-    public static void dropDownMenuSelect( WebElement element, String vValue) {
+    public void dropDownMenuSelect(WebElement element, String vValue) {
         Select select = new Select(element);
         try {
             wait(element);
@@ -44,7 +48,7 @@ public class WebActions {
 
     }
 
-    public static void enterValue(WebElement element, String vValue) {
+    public void enterValue(WebElement element, String vValue) {
         try {
             wait(element);
             element.clear();

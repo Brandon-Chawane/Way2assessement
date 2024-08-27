@@ -1,5 +1,6 @@
 package PageObjects;
 
+import WebUtilities.WebActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,51 +8,126 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    WebDriver driver;
+
+    public WebDriver driver;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+
     @FindBy(xpath = "//i[contains(@class,'icon icon-plus')]")
-    public static WebElement addUserBtn;
+    private WebElement addUserBtn;
 
     @FindBy(xpath = "//input[contains(@name,'FirstName')]")
-    public static WebElement txtFirstName;
+    private WebElement txtFirstName;
 
     @FindBy(xpath = "//input[contains(@name,'LastName')]")
-    public static WebElement txtLastName;
+    private WebElement txtLastName;
 
     @FindBy(xpath = "//input[contains(@name,'UserName')]")
-    public static WebElement txtUserName;
+    private WebElement txtUserName;
 
     @FindBy(xpath = "//input[contains(@type,'password')]")
-    public static WebElement txtPassword;
+    private WebElement txtPassword;
 
     @FindBy(xpath = "//input[contains(@value,'15')]")
-    public static WebElement rBtnCompanyAAA;
+    private WebElement rBtnCompanyAAA;
 
     @FindBy(xpath = "//input[contains(@value,'16')]")
-    public static WebElement rBtnCompanyBBB;
+    private WebElement rBtnCompanyBBB;
 
     @FindBy(xpath = "//select[contains(@name,'RoleId')]")
-    public static WebElement role;
+    private WebElement role;
 
     @FindBy(xpath = "//input[contains(@type,'email')]")
-    public static WebElement txtEmailAddress;
+    private WebElement txtEmailAddress;
 
     @FindBy(xpath = "//input[contains(@name,'Mobilephone')]")
-    public static WebElement txtCell;
+    private WebElement txtCell;
 
     @FindBy(xpath = "//button[@ng-click='save(user)'][contains(.,'Save')]")
-    public static WebElement btnSave;
+    private WebElement btnSave;
 
-    public static String expectedTitle = "Protractor practice website - WebTables";
+    public String expectedTitle = "Protractor practice website - WebTables";
+
 
     @FindBy(xpath = "//td[@ng-repeat='column in columns'][contains(.,'FName1')]")
-    public static  WebElement validateFirstEntry;
+    private WebElement validateFirstEntry;
 
     @FindBy(xpath = "//td[@ng-repeat='column in columns'][contains(.,'FName2')]")
-    public static WebElement validateSecondEntry;
+    private WebElement validateSecondEntry;
+
+    WebActions wa = new WebActions(driver);
+
+    //Action Methods
+
+    public void clickAddButton() {
+        wa.click(addUserBtn);
+    }
+
+    public void setFirstName(String firstname) {
+        wa.enterValue(txtFirstName, firstname);
+    }
+
+    public void setLastName(String lastname) {
+        wa.enterValue(txtLastName, lastname);
+    }
+
+    public void setUserName(String username) {
+        wa.enterValue(txtUserName, username);
+    }
+
+    public void clickFirstCustomerCompany() {
+        wa.click(rBtnCompanyAAA);
+    }
+    public void clickSecondCustomerCompany() {
+        wa.click(rBtnCompanyBBB);
+    }
+
+    public void setPassword(String password) {
+        wa.enterValue(txtPassword, password);
+    }
+
+    public void setRole(String roleSelect) {
+        wa.dropDownMenuSelect(role, roleSelect);
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        wa.enterValue(txtEmailAddress, emailAddress);
+    }
+
+    public void setCell(String cellPhoneNumber) {
+        wa.enterValue(txtCell, cellPhoneNumber);
+    }
+
+    public void clickSaveButton() {
+        wa.click(btnSave);
+    }
+
+    public String getTitle(){
+        return expectedTitle;
+    }
+
+    public boolean verifyingFirstUser() {
+        try {
+            return (validateFirstEntry.isDisplayed());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean verifyingSecondUser() {
+        try {
+            return (validateSecondEntry.isDisplayed());
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
+
+
+
+
+

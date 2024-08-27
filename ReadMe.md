@@ -16,6 +16,7 @@ This project is a test automation framework for automating interactions with a w
 - Java JDK 8 or higher
 - Maven
 - Chrome browser
+- Egde browser
 
 
 ## Setup
@@ -37,6 +38,6 @@ This project is a test automation framework for automating interactions with a w
 
 To execute the test, use the following Maven command:
 ```sh
-mvn test
+mvn clean test
 
 
